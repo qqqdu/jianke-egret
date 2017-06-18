@@ -1,0 +1,65 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,jianke_png,help_png,texture_png,SwordsMan_json,texture_json,orcs_json,timg_jpg,timg_png,black_jpg,black_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/jianke.png",
+			"type": "image",
+			"name": "jianke_png"
+		},
+		{
+			"url": "assets/help.png",
+			"type": "image",
+			"name": "help_png"
+		},
+		{
+			"url": "assets/texture.png",
+			"type": "image",
+			"name": "texture_png"
+		},
+		{
+			"url": "assets/SwordsMan.json",
+			"type": "json",
+			"name": "SwordsMan_json"
+		},
+		{
+			"url": "assets/texture.json",
+			"type": "json",
+			"name": "texture_json"
+		},
+		{
+			"name": "orcs_json",
+			"type": "json",
+			"url": "assets/orcs.json"
+		},
+		{
+			"name": "timg_jpg",
+			"type": "image",
+			"url": "assets/timg.jpg"
+		},
+		{
+			"name": "timg_png",
+			"type": "image",
+			"url": "assets/timg.png"
+		},
+		{
+			"name": "black_jpg",
+			"type": "image",
+			"url": "assets/black.jpg"
+		},
+		{
+			"name": "black_png",
+			"type": "image",
+			"url": "assets/black.png"
+		}
+	]
+}
