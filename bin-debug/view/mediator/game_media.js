@@ -14,6 +14,7 @@ var Mediator;
         __extends(game_media, _super);
         function game_media() {
             var _this = _super.call(this, game_media.NAME) || this;
+            _this.GameProxy = GameProxys.GameProxy;
             console.log('ok');
             return _this;
         }
@@ -24,6 +25,7 @@ var Mediator;
         game_media.prototype.handleNotification = function (notification) {
         };
         game_media.prototype.onRegister = function () {
+            this._gameProxy = this.facade.retrieveProxy(this.GameProxy.NAME);
         };
         game_media.prototype.onRemove = function () {
         };

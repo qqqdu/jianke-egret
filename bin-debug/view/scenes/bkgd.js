@@ -16,11 +16,11 @@ var sceners;
             var _this = _super.call(this) || this;
             _this.scale = 2;
             _this.x = 0;
-            _this.y = -300;
+            _this.y = -200;
             _this.res = "timg_png";
             _this.res_2 = "black_jpg";
             _this.backgroundOffset_x = 0; //偏移量
-            _this.backgroundOffset_y = 0;
+            _this.backgroundOffset_y = -200;
             _this.BACKGROUND_VELOCITY_x = 0; //速度
             _this.BACKGROUND_VELOCITY_y = 0;
             _this.timeOnEnterFrame = 0; //上一帧秒数
@@ -31,16 +31,22 @@ var sceners;
         bkgd.prototype.addback = function (that) {
             this.back_2 = new egret.Bitmap();
             this.back_2.texture = RES.getRes(this.res_2);
-            that.addChild(this.back_2);
+            that.addChild(this.back_2); //星空背景
             this.back_2.x = this.x;
             this.back_2.y = 2 * this.y + 100;
             this.back = new egret.Bitmap();
             this.back.texture = RES.getRes(this.res);
-            that.addChild(this.back);
+            that.addChild(this.back); //前景
             this.back.x = this.x;
             this.back.y = this.y;
             this.back.scaleX = this.scale;
             this.back.scaleY = this.scale;
+            this.addMap(that); //增加障碍物布局
+        };
+        bkgd.prototype.addMap = function (that) {
+            this.map = new sceners.map(this.width, this.height);
+            that.addChild(this.map);
+            this.map.addBar();
         };
         bkgd.prototype.rollIt = function () {
             egret.startTick(this.scrollBack, this);
@@ -74,6 +80,10 @@ var sceners;
             if (this.back) {
                 this.back.x = this.backgroundOffset_x;
                 this.back.y = this.backgroundOffset_y;
+            }
+            if (this.map) {
+                this.map.x = this.backgroundOffset_x;
+                this.map.y = this.backgroundOffset_y;
             }
             return false;
         };

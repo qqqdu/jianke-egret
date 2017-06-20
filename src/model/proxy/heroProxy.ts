@@ -1,13 +1,12 @@
 /// <reference path="../../rely/rely.d.ts"/>
 //背景对象
-module sceners{ 
-    export class heroObj extends egret.Sprite{
-        public father;
+module spriteProxy{ 
+    export class heroProxy extends puremvc.Proxy{
         public width:number;
         public height:number;
         public scale:number = 0.3;
         public x:number=0;
-        public y:number=-600;
+        public y:number=-300;
         public back;
         private _time:number; //帧时间
         private armature: dragonBones.Armature;
@@ -15,21 +14,19 @@ module sceners{
         private animateArr = ["steady","steady2","walk2","walk","jump","attack1","attack2","attack1_+1"];
           //  steady2 飞翔 "walk2" 飞翔动  walk 奔跑 "jump" 原地跳跃 attack1 向前刺击 attack2 飞起落刃 attack1_+1向前刺激加强版
         public bkgd:sceners.bkgd; //背景
-
         public static heroOffset_x:number=0; //偏移量
         public  static heroOffset_y:number=0;
         public VELOCITY_x = 120; //速度
         public VELOCITY_y = 70; 
         public timeOnEnterFrame = 0; //上一帧秒数
-        public constructor(width,height,father){
+        public constructor(width,height){
             super();
-            this.father = father;
             this.width = width;
             this.height = height;
-            
-            
         }
-        
+        public addback(that){
+          
+        }
        
         public controlKey(bkgd){
             this.bkgd = bkgd;
@@ -79,7 +76,7 @@ module sceners{
                 this.armature.animation.gotoAndPlay(this.animateArr[7],0,0,1);
             });
         }
-        public addpop(){
+        public addpop(that){
             var skeletonData = RES.getRes("SwordsMan_json");
             var textureData = RES.getRes("texture_json");
             var texture = RES.getRes("texture_png");
@@ -87,7 +84,7 @@ module sceners{
              factory.addDragonBonesData(dragonBones.DataParser.parseDragonBonesData(skeletonData));  
              factory.addTextureAtlas(new dragonBones.EgretTextureAtlas(texture,textureData));
              this.armature = factory.buildArmature("Swordsman");
-             this.father.addChild(this.armature.display);
+             that.addChild(this.armature.display);
              dragonBones.WorldClock.clock.add(this.armature);
              this.armature.display.x = 300;
              this.armature.display.y = 600;
@@ -115,19 +112,11 @@ module sceners{
             this.armature.display.y = this.armature.display.y-sceners.heroObj.heroOffset_y;
              if(this.armature.display.x<=this.armature.display.width*this.scale/2){
                 this.armature.display.x = this.armature.display.width*this.scale/2;
+                
             }
             if(this.armature.display.x>=this.width-this.armature.display.width*this.scale/2){
-                this.armature.display.x = this.width-this.armature.display.width*this.scale/2;
+                this.armature.display.x = this.width-this.armature.display.width*this.scale/2; 
             }
-        }
-        public static checkHit(){
-            var onoff;
-            sceners.map.barArr.map((item)=>{
-                if(){
-                    return onoff;
-                }
-                return item;
-            })
         }
     }
 }

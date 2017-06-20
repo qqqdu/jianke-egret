@@ -8,25 +8,26 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 /// <reference path="../../rely/rely.d.ts"/>
 //背景对象
-var sceners;
-(function (sceners) {
-    var heroObj = (function (_super) {
-        __extends(heroObj, _super);
-        function heroObj(width, height, father) {
+var spriteProxy;
+(function (spriteProxy) {
+    var heroProxy = (function (_super) {
+        __extends(heroProxy, _super);
+        function heroProxy(width, height) {
             var _this = _super.call(this) || this;
             _this.scale = 0.3;
             _this.x = 0;
-            _this.y = -600;
+            _this.y = -300;
             _this.animateArr = ["steady", "steady2", "walk2", "walk", "jump", "attack1", "attack2", "attack1_+1"];
             _this.VELOCITY_x = 120; //速度
             _this.VELOCITY_y = 70;
             _this.timeOnEnterFrame = 0; //上一帧秒数
-            _this.father = father;
             _this.width = width;
             _this.height = height;
             return _this;
         }
-        heroObj.prototype.controlKey = function (bkgd) {
+        heroProxy.prototype.addback = function (that) {
+        };
+        heroProxy.prototype.controlKey = function (bkgd) {
             var _this = this;
             this.bkgd = bkgd;
             var upEvent = function (code) {
@@ -69,7 +70,7 @@ var sceners;
                 _this.armature.animation.gotoAndPlay(_this.animateArr[7], 0, 0, 1);
             });
         };
-        heroObj.prototype.addpop = function () {
+        heroProxy.prototype.addpop = function (that) {
             var skeletonData = RES.getRes("SwordsMan_json");
             var textureData = RES.getRes("texture_json");
             var texture = RES.getRes("texture_png");
@@ -77,7 +78,7 @@ var sceners;
             factory.addDragonBonesData(dragonBones.DataParser.parseDragonBonesData(skeletonData));
             factory.addTextureAtlas(new dragonBones.EgretTextureAtlas(texture, textureData));
             this.armature = factory.buildArmature("Swordsman");
-            this.father.addChild(this.armature.display);
+            that.addChild(this.armature.display);
             dragonBones.WorldClock.clock.add(this.armature);
             this.armature.display.x = 300;
             this.armature.display.y = 600;
@@ -86,7 +87,7 @@ var sceners;
             this.armature.animation.gotoAndPlay(this.animateArr[0]);
             egret.startTick(this.onTicker, this);
         };
-        heroObj.prototype.onTicker = function (timeStamp) {
+        heroProxy.prototype.onTicker = function (timeStamp) {
             if (!this._time) {
                 this._time = timeStamp;
             }
@@ -97,7 +98,7 @@ var sceners;
             this.listenMove();
             return false;
         };
-        heroObj.prototype.listenMove = function () {
+        heroProxy.prototype.listenMove = function () {
             this.armature.display.x = this.armature.display.x - sceners.heroObj.heroOffset_x;
             this.armature.display.y = this.armature.display.y - sceners.heroObj.heroOffset_y;
             if (this.armature.display.x <= this.armature.display.width * this.scale / 2) {
@@ -107,11 +108,11 @@ var sceners;
                 this.armature.display.x = this.width - this.armature.display.width * this.scale / 2;
             }
         };
-        return heroObj;
-    }(egret.Sprite));
-    heroObj.heroOffset_x = 0; //偏移量
-    heroObj.heroOffset_y = 0;
-    sceners.heroObj = heroObj;
-    __reflect(heroObj.prototype, "sceners.heroObj");
-})(sceners || (sceners = {}));
-//# sourceMappingURL=heroObj.js.map
+        return heroProxy;
+    }(puremvc.Proxy));
+    heroProxy.heroOffset_x = 0; //偏移量
+    heroProxy.heroOffset_y = 0;
+    spriteProxy.heroProxy = heroProxy;
+    __reflect(heroProxy.prototype, "spriteProxy.heroProxy");
+})(spriteProxy || (spriteProxy = {}));
+//# sourceMappingURL=heroProxy.js.map

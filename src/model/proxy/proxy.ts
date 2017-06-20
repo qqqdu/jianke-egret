@@ -5,12 +5,11 @@ module GameProxys{
 
 		public static NAME: string = 'GAME_PROXY';
 
-		private _life: number = 0;
+		public _life: number = 0;
 
 
 		public constructor() {
 			super();
-			console.log("hello proxy");
 		}
 	}
 }

@@ -41,18 +41,20 @@
 
     <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
     <!--game_files_start-->
-	<script egret="game" src="bin-debug/scheme/sceneState.js"></script>
-	<script egret="game" src="bin-debug/scheme/sceneAction.js"></script>
 	<script egret="game" src="bin-debug/controller/command/injectFSMCommand.js"></script>
-	<script egret="game" src="bin-debug/controller/command/command_module.js"></script>
+	<script egret="game" src="bin-debug/scheme/sceneAction.js"></script>
+	<script egret="game" src="bin-debug/scheme/sceneState.js"></script>
+	<script egret="game" src="bin-debug/scheme/sceneFsm.js"></script>
 	<script egret="game" src="bin-debug/controller/command/startCommand.js"></script>
 	<script egret="game" src="bin-debug/facade/facade.js"></script>
+	<script egret="game" src="bin-debug/hitModel/hitTest.js"></script>
 	<script egret="game" src="bin-debug/LoadingUI.js"></script>
 	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/model/proxy/heroProxy.js"></script>
 	<script egret="game" src="bin-debug/model/proxy/proxy.js"></script>
 	<script egret="game" src="bin-debug/controller/command/control.js"></script>
-	<script egret="game" src="bin-debug/scheme/sceneFsm.js"></script>
-	<script egret="game" src="bin-debug/view/scenes/screnes.js"></script>
+	<script egret="game" src="bin-debug/controller/command/command_view.js"></script>
+	<script egret="game" src="bin-debug/controller/command/command_module.js"></script>
 	<script egret="game" src="bin-debug/scheme/sceneTransition.js"></script>
 	<script egret="game" src="bin-debug/view/mediator/game_media.js"></script>
 	<script egret="game" src="bin-debug/view/mediator/help_media.js"></script>
@@ -62,7 +64,8 @@
 	<script egret="game" src="bin-debug/view/scenes/game.js"></script>
 	<script egret="game" src="bin-debug/view/scenes/help.js"></script>
 	<script egret="game" src="bin-debug/view/scenes/heroObj.js"></script>
-	<script egret="game" src="bin-debug/controller/command/command_view.js"></script>
+	<script egret="game" src="bin-debug/view/scenes/map.js"></script>
+	<script egret="game" src="bin-debug/view/scenes/screnes.js"></script>
 	<!--game_files_end-->
 </head>
 <body>

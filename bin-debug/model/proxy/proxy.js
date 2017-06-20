@@ -15,7 +15,6 @@ var GameProxys;
         function GameProxy() {
             var _this = _super.call(this) || this;
             _this._life = 0;
-            console.log("hello proxy");
             return _this;
         }
         return GameProxy;

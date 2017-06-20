@@ -21,7 +21,6 @@ module sceners{
         private addback(){
             this.back = new egret.Bitmap();
             this.back.texture = RES.getRes("timg_jpg"); 
-            
             this.addChild(this.back);
             this.back.x = 0;
             this.back.y = 0;

@@ -20,8 +20,6 @@ module sceners{
             this.width = width;
             this.height = height;
             this.init();
-           
-           
         }
        
         private  init(){
@@ -30,8 +28,8 @@ module sceners{
             this.bkgd.addback(this);
             this.bkgd.rollIt();
             //加入猪脚
-            this.heroObj = new sceners.heroObj(this.width,this.height);
-            this.heroObj.addpop(this);
+            this.heroObj = new sceners.heroObj(this.width,this.height,this);
+            this.heroObj.addpop();
             this.heroObj.controlKey(this.bkgd);
 
             var btn = new egret.TextField();

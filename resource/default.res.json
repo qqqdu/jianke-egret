@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,jianke_png,help_png,texture_png,SwordsMan_json,texture_json,orcs_json,timg_jpg,timg_png,black_jpg,black_png",
+			"keys": "description_json,jianke_png,help_png,texture_png,SwordsMan_json,texture_json,orcs_json,timg_png,black_jpg,bar_1_png",
 			"name": "preload"
 		}
 	],
@@ -37,29 +37,34 @@
 			"name": "texture_json"
 		},
 		{
-			"name": "orcs_json",
+			"url": "assets/orcs.json",
 			"type": "json",
-			"url": "assets/orcs.json"
+			"name": "orcs_json"
 		},
 		{
-			"name": "timg_jpg",
+			"url": "assets/timg.jpg",
 			"type": "image",
-			"url": "assets/timg.jpg"
+			"name": "timg_jpg"
 		},
 		{
-			"name": "timg_png",
+			"url": "assets/timg.png",
 			"type": "image",
-			"url": "assets/timg.png"
+			"name": "timg_png"
 		},
 		{
-			"name": "black_jpg",
+			"url": "assets/black.jpg",
 			"type": "image",
-			"url": "assets/black.jpg"
+			"name": "black_jpg"
 		},
 		{
-			"name": "black_png",
+			"url": "assets/black.png",
 			"type": "image",
-			"url": "assets/black.png"
+			"name": "black_png"
+		},
+		{
+			"name": "bar_1_png",
+			"type": "image",
+			"url": "assets/bar_1.png"
 		}
 	]
 }

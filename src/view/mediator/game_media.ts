@@ -2,6 +2,8 @@
 /// <reference path="../../rely/rely.d.ts"/>
 module Mediator{
     export class game_media extends puremvc.Mediator{
+		public GameProxy = GameProxys.GameProxy;
+		public _gameProxy;
         public static NAME: string = 'GAME_MAIN_SCENE_MEDIATOR';
         public constructor(){
             super(game_media.NAME);
@@ -18,7 +20,7 @@ module Mediator{
 	}
 
 	public onRegister(): void {		
-		
+		this._gameProxy = this.facade.retrieveProxy(this.GameProxy.NAME);
 	}
 
 	public onRemove(): void {
@@ -27,8 +29,6 @@ module Mediator{
 
 	public renderScene(width: number, height: number): void {
 		var self = this;
-		
-	
 		self.viewComponent = new sceners.game(width, height);
 		self.viewComponent.onAction = function(action) {
 			self.sendNotification(puremvc.statemachine.StateMachine.ACTION, null, action);
@@ -38,6 +38,6 @@ module Mediator{
 	public destroyScene() {
 		this.viewComponent = null;
 	}
-
+	
     }
 }
